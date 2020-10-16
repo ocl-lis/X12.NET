@@ -33,6 +33,7 @@
         /// <returns>HCFA1500 claim</returns>
         public virtual HCFA1500Claim TransformClaimToHcfa1500(Claim claim)
         {
+            string[] diagnoseCodePointerLeeter = new[] { "A", "B", "C", "D" };
             var hcfa = new HCFA1500Claim();
 
             if (claim == null)
@@ -409,10 +410,10 @@
                 hcfaLine.Mod3 = line.Procedure.Modifier3;
                 hcfaLine.Mod4 = line.Procedure.Modifier4;
 
-                hcfaLine.DiagnosisPointer1 = line.DiagnosisCodePointer1;
-                hcfaLine.DiagnosisPointer2 = line.DiagnosisCodePointer2;
-                hcfaLine.DiagnosisPointer3 = line.DiagnosisCodePointer3;
-                hcfaLine.DiagnosisPointer4 = line.DiagnosisCodePointer4;
+                hcfaLine.DiagnosisPointer1 = !string.IsNullOrEmpty(line.DiagnosisCodePointer1) ? diagnoseCodePointerLeeter[int.Parse(line.DiagnosisCodePointer1)-1]:null;
+                hcfaLine.DiagnosisPointer2 = !string.IsNullOrEmpty(line.DiagnosisCodePointer2) ? diagnoseCodePointerLeeter[int.Parse(line.DiagnosisCodePointer2)-1] : null;
+                hcfaLine.DiagnosisPointer3 = !string.IsNullOrEmpty(line.DiagnosisCodePointer3) ? diagnoseCodePointerLeeter[int.Parse(line.DiagnosisCodePointer3)-1] : null;
+                hcfaLine.DiagnosisPointer4 = !string.IsNullOrEmpty(line.DiagnosisCodePointer4) ? diagnoseCodePointerLeeter[int.Parse(line.DiagnosisCodePointer4)-1] : null;
 
                 hcfaLine.Charges = line.ChargeAmount;
                 hcfaLine.DaysOrUnits = line.Quantity;
@@ -753,13 +754,21 @@
 
                     // Line 15
                     AddBlock(page, 6.5m, 37, 8, hcfa.Field21_Diagnosis1);
-                    AddBlock(page, 33.5m, 37, 8, hcfa.Field21_Diagnosis3);
+                    AddBlock(page, 14.5m, 37, 8, hcfa.Field21_Diagnosis3);
+                    AddBlock(page, 22.5m, 37, 8, hcfa.Field21_Diagnosis5);
+                    AddBlock(page, 30, 37, 8, hcfa.Field21_Diagnosis7);
+                    AddBlock(page, 38.5m, 37, 8, hcfa.Field21_Diagnosis9);
+                    AddBlock(page, 46.5m, 37, 8, hcfa.Field21_Diagnosis11);
                     AddBlock(page, 53, 37, 11, hcfa.Field22_MedicaidSubmissionCode);
                     AddBlock(page, 65, 37, 18, hcfa.Field22_OriginalReferenceNumber);
 
                     // Line 16
                     AddBlock(page, 6.5m, 39, 8, hcfa.Field21_Diagnosis2);
-                    AddBlock(page, 33.5m, 39, 8, hcfa.Field21_Diagnosis4);
+                    AddBlock(page, 14.5m, 39, 8, hcfa.Field21_Diagnosis4);
+                    AddBlock(page, 22.5m, 39, 8, hcfa.Field21_Diagnosis6);
+                    AddBlock(page, 30.5m, 39, 8, hcfa.Field21_Diagnosis8);
+                    AddBlock(page, 38.5m, 39, 8, hcfa.Field21_Diagnosis10);
+                    AddBlock(page, 46.5m, 39, 8, hcfa.Field21_Diagnosis12);
                     AddBlock(page, 53, 39, 30, hcfa.Field23_PriorAuthorizationNumber);
                 }
 

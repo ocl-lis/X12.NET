@@ -111,6 +111,14 @@
         public string Field21_Diagnosis2 { get; set; }
         public string Field21_Diagnosis3 { get; set; }
         public string Field21_Diagnosis4 { get; set; }
+        public string Field21_Diagnosis5 { get; set; }
+        public string Field21_Diagnosis6 { get; set; }
+        public string Field21_Diagnosis7 { get; set; }
+        public string Field21_Diagnosis8 { get; set; }
+        public string Field21_Diagnosis9 { get; set; }
+        public string Field21_Diagnosis10 { get; set; }
+        public string Field21_Diagnosis11 { get; set; }
+        public string Field21_Diagnosis12 { get; set; }
         public string Field22_MedicaidSubmissionCode { get; set; }                          // 11 characters
         public string Field22_OriginalReferenceNumber { get; set; }                        // 18 characters
         public string Field23_PriorAuthorizationNumber { get; set; }                       // 29 characters                         // Service line details
