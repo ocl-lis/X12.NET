@@ -1,13 +1,12 @@
 ﻿namespace X12.Hipaa.ClaimParser
 {
+    using Fonet;
     using System;
     using System.Collections.Generic;
     using System.Configuration;
     using System.IO;
     using System.Linq;
     using System.Xml;
-
-    using Fonet;
 
     using X12.Hipaa.Claims.Services;
     using X12.Parsing;
