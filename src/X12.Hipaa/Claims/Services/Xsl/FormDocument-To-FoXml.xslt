@@ -8,7 +8,7 @@
     <fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:frm="http://www.fsc.va.gov/XSL/Usva.SharedServices.xsd">
       <fo:layout-master-set>
         <fo:simple-page-master page-width="8.5in" page-height="11in" margin="0.0in" master-name="hcfa1500">
-          <fo:region-body margin-top="0.0625in" margin-left="0.0625in" margin-right="0.140in" />
+          <fo:region-body margin-top="0.0in" margin-left="0.0in" margin-right="0.0in" />
         </fo:simple-page-master>
         <fo:simple-page-master page-width="8.5in" page-height="11in" margin="0.0in" master-name="ub04">
           <fo:region-body margin-top="0.0in" margin-left="0.0in" margin-right="0.0in" />

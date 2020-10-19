@@ -91,6 +91,8 @@
     <Compile Include="Claims\Services\IClaimToClaimFormTransfomation.cs" />
     <Compile Include="Claims\Services\InstitutionalClaimToUB04ClaimFormTransformation.cs" />
     <Compile Include="Claims\Services\LocalExtensions.cs" />
+    <Compile Include="Claims\Services\ProfessionalClaimToHcfa1500FormTransformation0212.cs" />
+    <Compile Include="Claims\Services\ProfessionalClaimToHcfa1500FormTransformationTesting.cs" />
     <Compile Include="Claims\Services\ProfessionalClaimToHcfa1500FormTransformation.cs" />
     <Compile Include="Claims\SubmitterInfo.cs" />
     <Compile Include="Claims\ToothInformation.cs" />
@@ -165,7 +167,6 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="package.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\X12.Parsing\X12.Parsing.csproj">
