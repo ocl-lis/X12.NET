@@ -320,7 +320,7 @@
                     }
 
                     AddBlock(page, 54.5M, 55.5M, 9, $"{hcfa.Field28_TotalCharge:0.00}".Replace(".", " "), TextAlign.right);
-                    AddBlock(page, 64.4m, 55.5m, 9, $"{12.52:0.00}".Replace(".", " "), TextAlign.right);
+                    AddBlock(page, 64.4m, 55.5m, 9, $"{hcfa.Field29_AmountPaid:0.00}".Replace(".", " "), TextAlign.right);
                     //AddBlock(page, 74, 55, 9, $"{hcfa.Field30_BalanceDue:0.00}".Replace(".", " "), TextAlign.right);
 
                     // Box 31
