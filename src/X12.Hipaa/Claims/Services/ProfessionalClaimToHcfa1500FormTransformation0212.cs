@@ -43,6 +43,9 @@
                     page.MasterReference = "hcfa1500";
                     page.ImagePath = this.formImagePath;
 
+
+                    //Title
+                    AddBlock(page, 30, 3M, 30, hcfa.Field11c_InsuredsPlanOrProgramName,TextAlign.center);
                     // Render header
                     // LINE 1
 
@@ -228,7 +231,7 @@
                     AddBlock(page, 43, 39.6m, 8, hcfa.Field21_Diagnosis12);
 
 
-                    AddBlock(page, 54, 37.8m, 11, hcfa.Field22_MedicaidSubmissionCode);
+                    AddBlock(page, 56, 37.8m, 11, hcfa.Field22_MedicaidSubmissionCode);
                     AddBlock(page, 68.5m, 37.8m, 18, hcfa.Field22_OriginalReferenceNumber);
 
                     // Line 16
@@ -241,7 +244,7 @@
 
 
 
-                    AddBlock(page, 53, 39, 30, hcfa.Field23_PriorAuthorizationNumber);
+                    AddBlock(page, 54, 39.5m, 30, hcfa.Field23_PriorAuthorizationNumber);
                 }
 
                 // Render service lines
@@ -324,18 +327,20 @@
                     //AddBlock(page, 74, 55, 9, $"{hcfa.Field30_BalanceDue:0.00}".Replace(".", " "), TextAlign.right);
 
                     // Box 31
-                    if (hcfa.Field31_PhysicianOrSupplierSignatureIsOnFile.HasValue)
-                    {
-                        AddBlock(page, 4, 59.5m, 21, "PROVIDER SIGNATURE", TextAlign.center);
-                        AddBlock(
-                            page,
-                            4,
-                            60.2m,
-                            21,
-                            hcfa.Field31_PhysicianOrSupplierSignatureIsOnFile.Value ? "IS ON FILE" : "NOT ON FILE",
-                            TextAlign.center);
-                    }
+                    //if (hcfa.Field31_PhysicianOrSupplierSignatureIsOnFile.HasValue)
+                    //{
+                    //    AddBlock(page, 4, 59.5m, 21, "PROVIDER SIGNATURE", TextAlign.center);
+                    //    AddBlock(
+                    //        page,
+                    //        4,
+                    //        60.2m,
+                    //        21,
+                    //        hcfa.Field31_PhysicianOrSupplierSignatureIsOnFile.Value ? "IS ON FILE" : "NOT ON FILE",
+                    //        TextAlign.center);
+                    //}
 
+
+                    AddBlock(page, 14.8m, 61m, 14, hcfa.Field31_CreationDate.ToString(), TextAlign.center);
                     // Box 32
                     AddBlock(page, 26, 58, 27, hcfa.Field32_ServiceFacilityLocation_Name);
                     AddBlock(page, 26, 59, 27, hcfa.Field32_ServiceFacilityLocation_Street);
@@ -349,7 +354,7 @@
                     AddBlock(page, 54, 59, 27, hcfa.Field33_BillingProvider_Street);
                     AddBlock(page, 54, 60, 27, $"{hcfa.Field33_BillingProvider_City}, {hcfa.Field33_BillingProvider_State} {hcfa.Field33_BillingProvider_Zip}");
                     AddBlock(page, 54, 61.3m, 10, hcfa.Field33a_BillingProvider_Npi);
-                    AddBlock(page, 65m, 61.3m, 15, hcfa.Field33b_BillingProvider_OtherID);
+                    AddBlock(page, 65.3m, 61.3m, 15, hcfa.Field33b_BillingProvider_OtherID);
                 }
             }
 
