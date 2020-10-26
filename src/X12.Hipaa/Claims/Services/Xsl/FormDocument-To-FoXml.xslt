@@ -22,7 +22,7 @@
           <xsl:attribute name="master-reference">
             <xsl:value-of select="MasterReference"/>
           </xsl:attribute>
-          <fo:flow flow-name="xsl-region-body" font-size="10pt" font-family="Courier">
+          <fo:flow flow-name="xsl-region-body" font-size="8pt" font-family="Arial" font-weight="bold">
             <xsl:if test="string-length(ImagePath)>0">
               <fo:block>
                 <fo:external-graphic>

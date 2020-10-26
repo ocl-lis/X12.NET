@@ -88,7 +88,7 @@
                     //AddBlock(page, 50, 13, 2, ConditionalMarker(hcfa.Field08_PatientStatusIsOther));
 
                     AddBlock(page, 54, 13, 23, hcfa.Field07_InsuredsAddress_City);
-                    AddBlock(page, 79.7m, 13, 6, hcfa.Field07_InsuredsAddress_State);
+                    AddBlock(page, 81m, 13, 6, hcfa.Field07_InsuredsAddress_State);
 
                     // LINE 5
                     AddBlock(page, 4, 15, 13, hcfa.Field05_PatientsAddress_Zip);
@@ -178,6 +178,7 @@
                     }
 
                     // LINE 13
+                    AddBlock(page, 4, 33, 2, "DN");
                     AddBlock(page, 7, 33, 26, hcfa.Field17_ReferringProviderOrOtherSource_Name);
                     AddBlock(page, 33, 32.3m, 3, hcfa.Field17a_OtherID_Qualifier);
                     AddBlock(page, 36, 32.4m, 16,  hcfa.Field17a_OtherID_Number);
@@ -212,26 +213,26 @@
                     AddBlock(page, 74, 35, 9, string.Empty, TextAlign.right);
 
                     // Line 15
-                    AddBlock(page, 6.5m, 37.4m, 8, hcfa.Field21_Diagnosis1);
-                    AddBlock(page, 6.5m, 38.5m, 8, hcfa.Field21_Diagnosis5);
-                    AddBlock(page, 6.5m, 39.6m, 8, hcfa.Field21_Diagnosis9);
+                    AddBlock(page, 5m, 37.4m, 8, hcfa.Field21_Diagnosis1);
+                    AddBlock(page, 5m, 38.5m, 8, hcfa.Field21_Diagnosis5);
+                    AddBlock(page, 5m, 39.6m, 8, hcfa.Field21_Diagnosis9);
 
 
-                    AddBlock(page, 18.7m, 37.4m, 8, hcfa.Field21_Diagnosis2);
-                    AddBlock(page, 18.7m, 38.5m, 8, hcfa.Field21_Diagnosis6);
-                    AddBlock(page, 18.7m, 39.6m, 8, hcfa.Field21_Diagnosis10);
+                    AddBlock(page, 18m, 37.4m, 8, hcfa.Field21_Diagnosis2);
+                    AddBlock(page, 18m, 38.5m, 8, hcfa.Field21_Diagnosis6);
+                    AddBlock(page, 18m, 39.6m, 8, hcfa.Field21_Diagnosis10);
 
 
-                    AddBlock(page, 30.9m, 37.4m, 8, hcfa.Field21_Diagnosis3);
-                    AddBlock(page, 30.9m, 38.5m, 8, hcfa.Field21_Diagnosis7);
-                    AddBlock(page, 30.9m, 39.6m, 8, hcfa.Field21_Diagnosis11);
+                    AddBlock(page, 30.2m, 37.4m, 8, hcfa.Field21_Diagnosis3);
+                    AddBlock(page, 30.2m, 38.5m, 8, hcfa.Field21_Diagnosis7);
+                    AddBlock(page, 30.2m, 39.6m, 8, hcfa.Field21_Diagnosis11);
 
-                    AddBlock(page, 43, 37.4m, 8, hcfa.Field21_Diagnosis4);
-                    AddBlock(page, 43, 38.5m, 8, hcfa.Field21_Diagnosis8);
-                    AddBlock(page, 43, 39.6m, 8, hcfa.Field21_Diagnosis12);
+                    AddBlock(page, 42.5m, 37.4m, 8, hcfa.Field21_Diagnosis4);
+                    AddBlock(page, 42.5m, 38.5m, 8, hcfa.Field21_Diagnosis8);
+                    AddBlock(page, 42.5m, 39.6m, 8, hcfa.Field21_Diagnosis12);
 
 
-                    AddBlock(page, 56, 37.8m, 11, hcfa.Field22_MedicaidSubmissionCode);
+                    AddBlock(page, 60, 37.8m, 11, hcfa.Field22_MedicaidSubmissionCode);
                     AddBlock(page, 68.5m, 37.8m, 18, hcfa.Field22_OriginalReferenceNumber);
 
                     // Line 16
@@ -291,7 +292,7 @@
                 AddBlock(page, 48, y + 1, 2, line.DiagnosisPointer2);
                 AddBlock(page, 49, y + 1, 2, line.DiagnosisPointer3);
                 AddBlock(page, 50, y + 1, 2, line.DiagnosisPointer4);
-                AddBlock(page, 55m, y + 1, 9, $"{line.Charges:0.00}".Replace(".", " "), TextAlign.right);
+                AddBlock(page, 54m, y + 1, 9, $"{line.Charges:0.00}".Replace(".", "   "), TextAlign.right);
                 AddBlock(page, 62, y + 1, 4, $"{line.DaysOrUnits}", TextAlign.right);
                 AddBlock(page, 68, y + 1, 2, line.EarlyPeriodicScreeningDiagnosisAndTreatment);
                 AddBlock(page, 73, y + 1, 12,line.RenderingProviderNpi);
@@ -322,22 +323,8 @@
                             "X");
                     }
 
-                    AddBlock(page, 54.5M, 55.5M, 9, $"{hcfa.Field28_TotalCharge:0.00}".Replace(".", " "), TextAlign.right);
-                    AddBlock(page, 64.4m, 55.5m, 9, $"{hcfa.Field29_AmountPaid:0.00}".Replace(".", " "), TextAlign.right);
-                    //AddBlock(page, 74, 55, 9, $"{hcfa.Field30_BalanceDue:0.00}".Replace(".", " "), TextAlign.right);
-
-                    // Box 31
-                    //if (hcfa.Field31_PhysicianOrSupplierSignatureIsOnFile.HasValue)
-                    //{
-                    //    AddBlock(page, 4, 59.5m, 21, "PROVIDER SIGNATURE", TextAlign.center);
-                    //    AddBlock(
-                    //        page,
-                    //        4,
-                    //        60.2m,
-                    //        21,
-                    //        hcfa.Field31_PhysicianOrSupplierSignatureIsOnFile.Value ? "IS ON FILE" : "NOT ON FILE",
-                    //        TextAlign.center);
-                    //}
+                    AddBlock(page, 53.6M, 55.5M, 9, $"{hcfa.Field28_TotalCharge:0.00}".Replace(".", "   "), TextAlign.right);
+                    AddBlock(page, 64.4m, 55.5m, 9, $"{hcfa.Field29_AmountPaid:0.00}".Replace(".", "   "), TextAlign.right);
 
 
                     AddBlock(page, 14.8m, 61m, 14, hcfa.Field31_CreationDate.ToString(), TextAlign.center);
