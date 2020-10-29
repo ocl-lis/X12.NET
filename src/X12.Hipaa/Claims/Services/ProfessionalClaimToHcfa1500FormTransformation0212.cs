@@ -45,7 +45,7 @@
 
 
                     //Title
-                    AddBlock(page, 30, 3M, 30, hcfa.Field11c_InsuredsPlanOrProgramName,TextAlign.center);
+                    AddBlock(page, 30, 3M, 30, hcfa.Field11c_InsuredsPlanOrProgramName, TextAlign.center);
                     // Render header
                     // LINE 1
 
@@ -66,7 +66,7 @@
                     AddBlock(page, 37.2m, 9.1m, 3, hcfa.Field03_PatientsDateOfBirth.Day);
                     AddBlock(page, 40.5m, 9.1m, 3, hcfa.Field03_PatientsDateOfBirth.Year);
 
-                    AddBlock(page, 44.9m, 9.3m, 2.8m,  ConditionalMarker(hcfa.Field03_PatientsSexMale), TextAlign.center);
+                    AddBlock(page, 44.9m, 9.3m, 2.8m, ConditionalMarker(hcfa.Field03_PatientsSexMale), TextAlign.center);
                     AddBlock(page, 49.8m, 9.3m, 2.8m, ConditionalMarker(hcfa.Field03_PatientsSexFemale), TextAlign.center);
                     AddBlock(page, 54, 9, 30, hcfa.Field04_InsuredsName);
 
@@ -160,28 +160,28 @@
 
                     // Field 15 
                     AddBlock(page, 40.5M, 31.25M, 3, hcfa.Field15_DatePatientHadSameOrSimilarIllness.Month);
-                    AddBlock(page, 43.5M, 31.25M, 3,  hcfa.Field15_DatePatientHadSameOrSimilarIllness.Day);
-                    AddBlock(page, 46.5M, 31.25M, 3,hcfa.Field15_DatePatientHadSameOrSimilarIllness.Year);
+                    AddBlock(page, 43.5M, 31.25M, 3, hcfa.Field15_DatePatientHadSameOrSimilarIllness.Day);
+                    AddBlock(page, 46.5M, 31.25M, 3, hcfa.Field15_DatePatientHadSameOrSimilarIllness.Year);
 
                     if (hcfa.Field16_DatePatientUnableToWork_Start != null)
                     {
                         AddBlock(page, 58.5M, 31.25M, 3, hcfa.Field16_DatePatientUnableToWork_Start.Month);
-                    AddBlock(page, 61.5M, 31.25M, 3,  hcfa.Field16_DatePatientUnableToWork_Start.Day);
-                    AddBlock(page, 64.5M, 31.25M, 3,hcfa.Field16_DatePatientUnableToWork_Start.Year);
-                }
+                        AddBlock(page, 61.5M, 31.25M, 3, hcfa.Field16_DatePatientUnableToWork_Start.Day);
+                        AddBlock(page, 64.5M, 31.25M, 3, hcfa.Field16_DatePatientUnableToWork_Start.Year);
+                    }
 
                     if (hcfa.Field16_DatePatientUnableToWork_End != null)
                     {
-                        AddBlock(page, 74.7m, 31.25M, 3,hcfa.Field16_DatePatientUnableToWork_End.Month);
-                    AddBlock(page, 78, 31.25M, 3, hcfa.Field16_DatePatientUnableToWork_End.Day);
-                    AddBlock(page, 82.2m, 31.25M, 3, hcfa.Field16_DatePatientUnableToWork_End.Year);
+                        AddBlock(page, 74.7m, 31.25M, 3, hcfa.Field16_DatePatientUnableToWork_End.Month);
+                        AddBlock(page, 78, 31.25M, 3, hcfa.Field16_DatePatientUnableToWork_End.Day);
+                        AddBlock(page, 82.2m, 31.25M, 3, hcfa.Field16_DatePatientUnableToWork_End.Year);
                     }
 
                     // LINE 13
                     AddBlock(page, 4, 33, 2, "DN");
                     AddBlock(page, 7, 33, 26, hcfa.Field17_ReferringProviderOrOtherSource_Name);
                     AddBlock(page, 33, 32.3m, 3, hcfa.Field17a_OtherID_Qualifier);
-                    AddBlock(page, 36, 32.4m, 16,  hcfa.Field17a_OtherID_Number);
+                    AddBlock(page, 36, 32.4m, 16, hcfa.Field17a_OtherID_Number);
                     AddBlock(page, 36, 33.5m, 16, hcfa.Field17b_NationalProviderIdentifier);
 
                     // Field 18
@@ -191,7 +191,7 @@
 
                     AddBlock(page, 74.5m, 33.4M, 3, hcfa.Field18_HospitalizationDateTo.Month);
                     AddBlock(page, 78, 33.4M, 3, hcfa.Field18_HospitalizationDateTo.Day);
-                    AddBlock(page, 82.2m, 33.4M, 3,  hcfa.Field18_HospitalizationDateTo.Year);
+                    AddBlock(page, 82.2m, 33.4M, 3, hcfa.Field18_HospitalizationDateTo.Year);
 
                     // LINE 14
                     // We limit the length of the remark to only the size of the block. 
@@ -281,7 +281,7 @@
                     AddBlock(page, 17.3M, y + 1, 3, string.Empty);
                 }
 
-                AddBlock(page, 22, y + 1, 3,line.PlaceOfService);
+                AddBlock(page, 22, y + 1, 3, line.PlaceOfService);
                 AddBlock(page, 24, y + 1, 2, line.EmergencyIndicator);
                 AddBlock(page, 28, y + 1, 6, line.ProcedureCode);
                 AddBlock(page, 35, y + 1, 3, line.Mod1);
@@ -295,7 +295,7 @@
                 AddBlock(page, 54m, y + 1, 9, $"{line.Charges:0.00}".Replace(".", "   "), TextAlign.right);
                 AddBlock(page, 62, y + 1, 4, $"{line.DaysOrUnits}", TextAlign.right);
                 AddBlock(page, 68, y + 1, 2, line.EarlyPeriodicScreeningDiagnosisAndTreatment);
-                AddBlock(page, 73, y + 1, 12,line.RenderingProviderNpi);
+                AddBlock(page, 73, y + 1, 12, line.RenderingProviderNpi);
 
                 // Footer
                 if (i % 6 == 5 || i == hcfa.Field24_ServiceLines.Count - 1)
@@ -331,12 +331,13 @@
                     // Box 32
                     AddBlock(page, 26, 58, 27, hcfa.Field32_ServiceFacilityLocation_Name);
                     AddBlock(page, 26, 59, 27, hcfa.Field32_ServiceFacilityLocation_Street);
-                    AddBlock(page, 26, 60, 27, $"{hcfa.Field32_ServiceFacilityLocation_City}, {hcfa.Field32_ServiceFacilityLocation_State} {hcfa.Field32_ServiceFacilityLocation_Zip}");
+                    if (!string.IsNullOrEmpty(hcfa.Field32_ServiceFacilityLocation_City) && !string.IsNullOrEmpty(hcfa.Field32_ServiceFacilityLocation_State))
+                        AddBlock(page, 26, 60, 27, $"{hcfa.Field32_ServiceFacilityLocation_City}, {hcfa.Field32_ServiceFacilityLocation_State} {hcfa.Field32_ServiceFacilityLocation_Zip}");
                     AddBlock(page, 26, 61.3m, 10, hcfa.Field32a_ServiceFacilityLocation_Npi);
                     AddBlock(page, 38, 61.3m, 15, hcfa.Field32b_ServiceFacilityLocation_OtherID);
 
                     // Box 33
-                    AddBlock(page, 69, 57, 27,  hcfa.Field33_BillingProvider_TelephoneNumber);
+                    AddBlock(page, 69, 57, 27, hcfa.Field33_BillingProvider_TelephoneNumber);
                     AddBlock(page, 54, 58, 27, hcfa.Field33_BillingProvider_Name);
                     AddBlock(page, 54, 59, 27, hcfa.Field33_BillingProvider_Street);
                     AddBlock(page, 54, 60, 27, $"{hcfa.Field33_BillingProvider_City}, {hcfa.Field33_BillingProvider_State} {hcfa.Field33_BillingProvider_Zip}");
