@@ -15,68 +15,68 @@
         /// <summary>
         /// Initializes static members of the <see cref="ResourcePathManager"/> class
         /// </summary>
-        static ResourcePathManager()
-        {
-            ResourcePaths = new List<string>();
-            QueryMap = new Dictionary<string, IDictionary<string, string>>();
-            ExpectedValuesMap = new Dictionary<string, IDictionary<string, string>>();
+        //static ResourcePathManager()
+        //{
+        //    ResourcePaths = new List<string>();
+        //    QueryMap = new Dictionary<string, IDictionary<string, string>>();
+        //    ExpectedValuesMap = new Dictionary<string, IDictionary<string, string>>();
 
-            Stream stream = Extensions.GetEdi(SampleFilesIndex);
-            using (XmlReader reader = XmlReader.Create(stream, new XmlReaderSettings()))
-            {
-                var document = new XPathDocument(reader);
-                var navigator = document.CreateNavigator();
+        //    Stream stream = Extensions.GetEdi(SampleFilesIndex);
+        //    using (XmlReader reader = XmlReader.Create(stream, new XmlReaderSettings()))
+        //    {
+        //        var document = new XPathDocument(reader);
+        //        var navigator = document.CreateNavigator();
 
-                XPathNodeIterator sampleFiles = navigator.Select("/SampleEdiFiles/TransactionSet/EdiFile");
-                while (sampleFiles.MoveNext())
-                {
-                    var currentNavigator = sampleFiles.Current;
-                    currentNavigator.MoveToFirstChild();
+        //        XPathNodeIterator sampleFiles = navigator.Select("/SampleEdiFiles/TransactionSet/EdiFile");
+        //        while (sampleFiles.MoveNext())
+        //        {
+        //            var currentNavigator = sampleFiles.Current;
+        //            currentNavigator.MoveToFirstChild();
 
-                    string resourcePath = string.Empty;
-                    Dictionary<string, string> queries = new Dictionary<string, string>();
-                    Dictionary<string, string> expectedValues = new Dictionary<string, string>();
+        //            string resourcePath = string.Empty;
+        //            Dictionary<string, string> queries = new Dictionary<string, string>();
+        //            Dictionary<string, string> expectedValues = new Dictionary<string, string>();
 
-                    do
-                    {
-                        if (currentNavigator.Name == "ResourcePath")
-                        {
-                            resourcePath = currentNavigator.Value;
-                            continue;
-                        }
+        //            do
+        //            {
+        //                if (currentNavigator.Name == "ResourcePath")
+        //                {
+        //                    resourcePath = currentNavigator.Value;
+        //                    continue;
+        //                }
 
-                        if (currentNavigator.Name == "SourceUrl")
-                        {
-                            continue;
-                        }
+        //                if (currentNavigator.Name == "SourceUrl")
+        //                {
+        //                    continue;
+        //                }
 
-                        // Using an arbitrary value for the loop stop
-                        for (int i = 0; i < 5; i++)
-                        {
-                            if (currentNavigator.Name == $"Query{i}")
-                            {
-                                queries.Add($"Query{i}", currentNavigator.Value);
-                                break;
-                            }
+        //                // Using an arbitrary value for the loop stop
+        //                for (int i = 0; i < 5; i++)
+        //                {
+        //                    if (currentNavigator.Name == $"Query{i}")
+        //                    {
+        //                        queries.Add($"Query{i}", currentNavigator.Value);
+        //                        break;
+        //                    }
 
-                            if (currentNavigator.Name == $"Expected{i}")
-                            {
-                                expectedValues.Add($"Expected{i}", currentNavigator.Value);
-                                break;
-                            }
-                        }
-                    }
-                    while (currentNavigator.MoveToNext());
+        //                    if (currentNavigator.Name == $"Expected{i}")
+        //                    {
+        //                        expectedValues.Add($"Expected{i}", currentNavigator.Value);
+        //                        break;
+        //                    }
+        //                }
+        //            }
+        //            while (currentNavigator.MoveToNext());
 
-                    if (!string.IsNullOrEmpty(resourcePath))
-                    {
-                        ResourcePaths.Add(resourcePath);
-                        QueryMap.Add(resourcePath, queries);
-                        ExpectedValuesMap.Add(resourcePath, expectedValues);
-                    }
-                }
-            }
-        }
+        //            if (!string.IsNullOrEmpty(resourcePath))
+        //            {
+        //                ResourcePaths.Add(resourcePath);
+        //                QueryMap.Add(resourcePath, queries);
+        //                ExpectedValuesMap.Add(resourcePath, expectedValues);
+        //            }
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// Gets the collection of resource path strings to sample EDI files for testing
