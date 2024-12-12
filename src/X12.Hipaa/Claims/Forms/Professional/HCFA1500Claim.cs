@@ -134,6 +134,7 @@
         public decimal? Field30_BalanceDue { get; set; }                                       // 6 digits                               // 2 digits
         public bool? Field31_PhysicianOrSupplierSignatureIsOnFile { get; set; }
         public FormDate Field31_CreationDate { get; set; }                    // MMDDCCYY// Signed field.  Store true = Signature On File, false = Signature NOT On File.  If SOF, enter date in next field
+        public string Field31_PhysicianOrSupplierSignature { get; set; }      // Signed field.  Store 1 = Signature On File, 2 = Signature NOT On File.  If SOF, enter date in next field  
         public string Field32_ServiceFacilityLocation_Name { get; set; }                      // 26 characters
         public string Field32_ServiceFacilityLocation_Street { get; set; }                     // 26 characters
         public string Field32_ServiceFacilityLocation_City { get; set; }                       // 26 characters for this and next two fields combined

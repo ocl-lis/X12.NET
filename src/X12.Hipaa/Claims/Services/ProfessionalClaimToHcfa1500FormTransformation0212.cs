@@ -281,7 +281,7 @@
                     AddBlock(page, 17.3M, y + 1, 3, string.Empty);
                 }
 
-                AddBlock(page, 22, y + 1, 3, line.PlaceOfService);
+                AddBlock(page, 21, y + 1, 3, line.PlaceOfService,TextAlign.center);
                 AddBlock(page, 24, y + 1, 2, line.EmergencyIndicator);
                 AddBlock(page, 28, y + 1, 6, line.ProcedureCode);
                 AddBlock(page, 35, y + 1, 3, line.Mod1);
@@ -326,7 +326,7 @@
                     AddBlock(page, 53.6M, 55.5M, 9, $"{hcfa.Field28_TotalCharge:0.00}".Replace(".", "   "), TextAlign.right);
                     AddBlock(page, 64.4m, 55.5m, 9, $"{hcfa.Field29_AmountPaid:0.00}".Replace(".", "   "), TextAlign.right);
 
-
+                    AddBlock(page, 4, 59.5M, 15, hcfa.Field31_PhysicianOrSupplierSignature);
                     AddBlock(page, 14.8m, 61m, 14, hcfa.Field31_CreationDate.ToString(), TextAlign.center);
                     // Box 32
                     AddBlock(page, 26, 58, 27, hcfa.Field32_ServiceFacilityLocation_Name);
